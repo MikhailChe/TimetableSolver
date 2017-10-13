@@ -14,7 +14,7 @@ public class Classroom {
 	 * @param classesAllowed
 	 * @param numStudentsAllowed
 	 */
-	public Classroom(long id, String name, int classesAllowed, int numStudentsAllowed) {
+	public Classroom(final long id, final String name, final int classesAllowed, final int numStudentsAllowed) {
 		super();
 		if (name == null)
 			throw new NullPointerException("У класса должно быть название.");
@@ -24,7 +24,7 @@ public class Classroom {
 		this.numStudentsAllowed = numStudentsAllowed;
 	}
 
-	public Classroom(String name) {
+	public Classroom(final String name) {
 		this(ThreadLocalRandom.current().nextLong(), name, -1, -1);
 	}
 
@@ -73,10 +73,7 @@ public class Classroom {
 			return false;
 		if (this.id != other.id)
 			return false;
-		if (this.name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!this.name.equals(other.name))
+		if (!this.name.equals(other.name))
 			return false;
 		if (this.numStudentsAllowed != other.numStudentsAllowed)
 			return false;

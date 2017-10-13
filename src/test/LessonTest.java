@@ -34,19 +34,6 @@ public class LessonTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public final void testConstructorVararg() {
-
-		Lesson l = null;
-		try {
-			l = new Lesson(new Group(30, 10, 'A'), new Discipline("Физика"));
-		} catch (NullPointerException e) {
-			return;
-		}
-		Assert.fail("No null pointer exception.");
-
-	}
-
 	/**
 	 * Test method for {@link ru.dolika.timetable.models.Lesson#hashCode()}.
 	 */
@@ -70,7 +57,14 @@ public class LessonTest {
 	 */
 	@Test
 	public final void testLessonGroupDisciplineTeacherArray() {
-		fail("Not yet implemented");
+
+		Lesson l = null;
+		try {
+			l = new Lesson(new Group(30, 10, 'A'), new Discipline("Физика"));
+		} catch (NullPointerException e) {
+			return;
+		}
+		Assert.fail("No null pointer exception.");
 	}
 
 	/**
