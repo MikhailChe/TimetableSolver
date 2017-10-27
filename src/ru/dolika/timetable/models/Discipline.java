@@ -1,18 +1,30 @@
 package ru.dolika.timetable.models;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-
-@XmlAccessorType(XmlAccessType.NONE)
 public class Discipline {
+	final private String name;
+	final private long score;
+	final private int subdivisionFactor;
 
-	@XmlElement
-	private String name;
-	@XmlElement
-	private long score;
-	@XmlElement
-	private int subdivisionFactor;
+	/**
+	 * @param name
+	 */
+	public Discipline(String name) {
+		this(name, 1, 1);
+	}
+
+	/**
+	 * @param score
+	 * @param name
+	 * @param subdivision
+	 */
+	public Discipline(String name, long score, int subdivision) {
+		super();
+		if (name == null)
+			throw new NullPointerException("Название дисциплины не должно быть пустым");
+		this.score = score;
+		this.name = name;
+		this.subdivisionFactor = subdivision;
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -55,34 +67,30 @@ public class Discipline {
 			return false;
 		}
 		Discipline other = (Discipline) obj;
-		if (this.name == null) {
-			if (other.name != null) {
-				return false;
-			}
-		} else if (!this.name.equals(other.name)) {
+		if (!this.name.equals(other.name)) {
 			return false;
 		}
 		return true;
 	}
 
 	/**
-	 * @param name
+	 * @return the name
 	 */
-	public Discipline(String name) {
-		this(name, 1, 1);
+	public final String getName() {
+		return this.name;
 	}
 
 	/**
-	 * @param score
-	 * @param name
-	 * @param subdivision
+	 * @return the score
 	 */
-	public Discipline(String name, long score, int subdivision) {
-		super();
-		if (name == null)
-			throw new NullPointerException("Название дисциплины не должно быть пустым");
-		this.score = score;
-		this.name = name;
-		this.subdivisionFactor = subdivision;
+	public final long getScore() {
+		return this.score;
+	}
+
+	/**
+	 * @return the subdivisionFactor
+	 */
+	public final int getSubdivisionFactor() {
+		return this.subdivisionFactor;
 	}
 }

@@ -3,16 +3,19 @@
  */
 package test;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Assert;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import ru.dolika.timetable.models.Discipline;
 import ru.dolika.timetable.models.Group;
 import ru.dolika.timetable.models.Lesson;
+import ru.dolika.timetable.models.Teacher;
 
 /**
  * @author Mikhail
@@ -20,26 +23,15 @@ import ru.dolika.timetable.models.Lesson;
  */
 public class LessonTest {
 
-	/**
-	 * @throws java.lang.Exception
-	 */
+	Group g;
+	Discipline d;
+	Set<Teacher> t;
+
 	@Before
-	public void setUp() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	/**
-	 * Test method for {@link ru.dolika.timetable.models.Lesson#hashCode()}.
-	 */
-	@Test
-	public final void testHashCode() {
-		fail("Not yet implemented");
+	public void setup() {
+		this.g = new Group(30, 10, 'А');
+		this.d = new Discipline("Физика");
+		this.t = new HashSet<>(Arrays.asList(new Teacher("Михаил", "Юрьевич", "Черноскутов")));
 	}
 
 	/**
@@ -48,7 +40,32 @@ public class LessonTest {
 	 */
 	@Test
 	public final void testLessonGroupDisciplineSetOfTeacher() {
-		fail("Not yet implemented");
+		Lesson l = new Lesson(this.g, this.d, this.t);
+		assertTrue(l.getDiscipline().equals(this.d));
+		assertTrue(l.getGroup().equals(this.g));
+		assertTrue(l.getTeachers().equals(this.t));
+
+		l = null;
+		try {
+			l = new Lesson(null, this.d, this.t);
+		} catch (NullPointerException e) {
+
+		}
+		assertNull(l);
+
+		try {
+			l = new Lesson(this.g, null, this.t);
+		} catch (NullPointerException e) {
+
+		}
+		assertNull(l);
+
+		try {
+			l = new Lesson(this.g, this.d, (Set<Teacher>) null);
+		} catch (NullPointerException e) {
+
+		}
+		assertNull(l);
 	}
 
 	/**
@@ -57,22 +74,32 @@ public class LessonTest {
 	 */
 	@Test
 	public final void testLessonGroupDisciplineTeacherArray() {
-
 		Lesson l = null;
-		try {
-			l = new Lesson(new Group(30, 10, 'A'), new Discipline("Физика"));
-		} catch (NullPointerException e) {
-			return;
-		}
-		Assert.fail("No null pointer exception.");
-	}
 
-	/**
-	 * Test method for {@link ru.dolika.timetable.models.Lesson#toString()}.
-	 */
-	@Test
-	public final void testToString() {
-		fail("Not yet implemented");
+		l = new Lesson(this.g, this.d, new Teacher("Колмогоров", "Денис", "Борисович"));
+		assertNotNull(l);
+
+		l = null;
+		try {
+			l = new Lesson(this.g, this.d);
+		} catch (NullPointerException e) {
+
+		}
+		assertNull(l);
+		try {
+			l = new Lesson(null, new Discipline("Физика"), new Teacher("Колмогоров", "Денис", "Борисович"));
+		} catch (NullPointerException e) {
+
+		}
+		assertNull(l);
+
+		try {
+			l = new Lesson(new Group(30, 10, 'A'), null, new Teacher("Колмогоров", "Денис", "Борисович"));
+		} catch (NullPointerException e) {
+
+		}
+		assertNull(l);
+
 	}
 
 	/**
@@ -81,7 +108,28 @@ public class LessonTest {
 	 */
 	@Test
 	public final void testEqualsObject() {
-		fail("Not yet implemented");
+		Lesson l = new Lesson(this.g, this.d, this.t);
+		Lesson l2 = new Lesson(this.g, this.d, this.t);
+
+		assertTrue(l.equals(l2));
+		assertTrue(l2.equals(l));
+		assertEquals(l.toString(), l2.toString());
+		assertEquals(l.hashCode(), l2.hashCode());
+
+		assertFalse(l.equals(null));
+		assertFalse(l2.equals(null));
+
+		assertFalse(l.equals(new Object()));
+		assertFalse(l2.equals(new Object()));
+
+		assertTrue(l.equals(l));
+		assertTrue(l2.equals(l2));
+
+		assertFalse(l.equals(new Lesson(new Group(10, 8, 'Б'), this.d, this.t)));
+		assertFalse(l.equals(new Lesson(this.g, new Discipline("Химия"), this.t)));
+		assertFalse(l.equals(new Lesson(this.g, this.d,
+				new HashSet<>(Arrays.asList(new Teacher("Владислав", "Витальевич", "Мешков"))))));
+
 	}
 
 }

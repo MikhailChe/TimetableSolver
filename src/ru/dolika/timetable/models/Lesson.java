@@ -25,7 +25,7 @@ public class Lesson {
 
 	public Lesson(Group group, Discipline discipline, Teacher... teachers) {
 		super();
-		if (group == null || discipline == null || teachers == null || teachers.length == 0)
+		if (group == null || discipline == null || teachers.length == 0)
 			throw new NullPointerException("Группа, дисциплина и учитель не должны быть пустыми");
 		this.group = group;
 		this.discipline = discipline;
@@ -40,9 +40,8 @@ public class Lesson {
 	 */
 	@Override
 	public String toString() {
-		return "Lesson [" + (this.group != null ? "group=" + this.group + ", " : "")
-				+ (this.discipline != null ? "discipline=" + this.discipline + ", " : "")
-				+ (this.teachers != null ? "teachers=" + this.teachers : "") + "]";
+		return "Lesson [" + "group=" + this.group + ", " + "discipline=" + this.discipline + ", " + "teachers="
+				+ this.teachers + "]";
 	}
 
 	/*
@@ -54,9 +53,9 @@ public class Lesson {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((this.discipline == null) ? 0 : this.discipline.hashCode());
-		result = prime * result + ((this.group == null) ? 0 : this.group.hashCode());
-		result = prime * result + ((this.teachers == null) ? 0 : this.teachers.hashCode());
+		result = prime * result + ((discipline == null) ? 0 : discipline.hashCode());
+		result = prime * result + ((group == null) ? 0 : group.hashCode());
+		result = prime * result + ((teachers == null) ? 0 : teachers.hashCode());
 		return result;
 	}
 
@@ -74,21 +73,34 @@ public class Lesson {
 		if (!(obj instanceof Lesson))
 			return false;
 		Lesson other = (Lesson) obj;
-		if (this.discipline == null) {
-			if (other.discipline != null)
-				return false;
-		} else if (!this.discipline.equals(other.discipline))
+		if (!this.discipline.equals(other.discipline))
 			return false;
-		if (this.group == null) {
-			if (other.group != null)
-				return false;
-		} else if (!this.group.equals(other.group))
+		if (!this.group.equals(other.group))
 			return false;
-		if (this.teachers == null) {
-			if (other.teachers != null)
-				return false;
-		} else if (!this.teachers.equals(other.teachers))
+		if (!this.teachers.equals(other.teachers))
 			return false;
 		return true;
 	}
+
+	/**
+	 * @return the group
+	 */
+	public final Group getGroup() {
+		return this.group;
+	}
+
+	/**
+	 * @return the discipline
+	 */
+	public final Discipline getDiscipline() {
+		return this.discipline;
+	}
+
+	/**
+	 * @return the teachers
+	 */
+	public final Set<Teacher> getTeachers() {
+		return this.teachers;
+	}
+
 }

@@ -4,33 +4,15 @@ import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 import java.util.concurrent.ThreadLocalRandom;
 
-import ru.dolika.timetable.models.Discipline;
-import ru.dolika.timetable.models.DisciplineGroup;
-import ru.dolika.timetable.models.Group;
-import ru.dolika.timetable.models.Teacher;
-import ru.dolika.timetable.models.TeacherDiscipline;
-
-public class Main {
+public class Main implements Runnable {
 
 	public static void main(String... strings) {
-		Teacher teacher = new Teacher("Михаил", "Юрьевич", "Черноскутов");
-		Discipline discipline = new Discipline("Физика");
-		Group gr8a = new Group(30, 8, 'a');
-		Group gr8b = new Group(28, 8, 'b');
+		new Main().run();
+	}
 
-		DisciplineGroup grdis1 = new DisciplineGroup(0, gr8a, discipline);
-		DisciplineGroup grdis2 = new DisciplineGroup(0, gr8b, discipline);
-
-		TeacherDiscipline teacherDiscipline = new TeacherDiscipline(0, teacher, discipline);
-
-		System.out.println("Teacher: " + teacher);
-		System.out.println("Discipline: " + discipline);
-		System.out.println("groups: " + gr8a + ",    " + gr8b);
-		System.out.println("Disciplines of Teacher: " + teacherDiscipline);
-
-		System.out.println("Disciplines of Group: " + grdis1);
-		System.out.println("Disciplines of Group: " + grdis2);
-
+	@Override
+	public void run() {
+		
 	}
 
 	public static void main2(String... strings) {
