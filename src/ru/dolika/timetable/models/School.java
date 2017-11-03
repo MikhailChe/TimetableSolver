@@ -84,4 +84,184 @@ public class School {
 	// то же время два таких урока, так как ученики из трети могут оказаться
 	// учениками из пловинки
 	Set<Lesson> lessons;
+
+	/**
+	 * @return the teachers
+	 */
+	public final Set<Teacher> getTeachers() {
+		return this.teachers;
+	}
+
+	/**
+	 * @param teachers
+	 *            the teachers to set
+	 */
+	public final void setTeachers(Set<Teacher> teachers) {
+		this.teachers = teachers;
+	}
+
+	/**
+	 * @return the classrooms
+	 */
+	public final Set<Classroom> getClassrooms() {
+		return this.classrooms;
+	}
+
+	/**
+	 * @param classrooms
+	 *            the classrooms to set
+	 */
+	public final void setClassrooms(Set<Classroom> classrooms) {
+		this.classrooms = classrooms;
+	}
+
+	/**
+	 * @return the disciplines
+	 */
+	public final Set<Discipline> getDisciplines() {
+		return this.disciplines;
+	}
+
+	/**
+	 * @param disciplines
+	 *            the disciplines to set
+	 */
+	public final void setDisciplines(Set<Discipline> disciplines) {
+		this.disciplines = disciplines;
+	}
+
+	/**
+	 * @return the groups
+	 */
+	public final Set<Group> getGroups() {
+		return this.groups;
+	}
+
+	/**
+	 * @param groups
+	 *            the groups to set
+	 */
+	public final void setGroups(Set<Group> groups) {
+		this.groups = groups;
+	}
+
+	/**
+	 * @return the teacherDisciplines
+	 */
+	public final Set<TeacherDiscipline> getTeacherDisciplines() {
+		return this.teacherDisciplines;
+	}
+
+	/**
+	 * @param teacherDisciplines
+	 *            the teacherDisciplines to set
+	 */
+	public final void setTeacherDisciplines(Set<TeacherDiscipline> teacherDisciplines) {
+		this.teacherDisciplines = teacherDisciplines;
+	}
+
+	/**
+	 * @return the disciplineGroups
+	 */
+	public final Set<DisciplineGroup> getDisciplineGroups() {
+		return this.disciplineGroups;
+	}
+
+	/**
+	 * @param disciplineGroups
+	 *            the disciplineGroups to set
+	 */
+	public final void setDisciplineGroups(Set<DisciplineGroup> disciplineGroups) {
+		this.disciplineGroups = disciplineGroups;
+	}
+
+	/**
+	 * @return the teacherDisciplineGroups
+	 */
+	public final Set<TeacherDisciplineGroup> getTeacherDisciplineGroups() {
+		return this.teacherDisciplineGroups;
+	}
+
+	/**
+	 * @param teacherDisciplineGroups
+	 *            the teacherDisciplineGroups to set
+	 */
+	public final void setTeacherDisciplineGroups(Set<TeacherDisciplineGroup> teacherDisciplineGroups) {
+		this.teacherDisciplineGroups = teacherDisciplineGroups;
+	}
+
+	/**
+	 * @return the teacherClassroomWhite
+	 */
+	public final Set<TeacherClassroom> getTeacherClassroomWhite() {
+		return this.teacherClassroomWhite;
+	}
+
+	/**
+	 * @param teacherClassroomWhite
+	 *            the teacherClassroomWhite to set
+	 */
+	public final void setTeacherClassroomWhite(Set<TeacherClassroom> teacherClassroomWhite) {
+		this.teacherClassroomWhite = teacherClassroomWhite;
+	}
+
+	/**
+	 * @return the teacherClassroomBlack
+	 */
+	public final Set<TeacherClassroom> getTeacherClassroomBlack() {
+		return this.teacherClassroomBlack;
+	}
+
+	/**
+	 * @param teacherClassroomBlack
+	 *            the teacherClassroomBlack to set
+	 */
+	public final void setTeacherClassroomBlack(Set<TeacherClassroom> teacherClassroomBlack) {
+		this.teacherClassroomBlack = teacherClassroomBlack;
+	}
+
+	/**
+	 * @return the disciplineClassroomWhite
+	 */
+	public final Set<DisciplineClassroom> getDisciplineClassroomWhite() {
+		return this.disciplineClassroomWhite;
+	}
+
+	/**
+	 * @param disciplineClassroomWhite
+	 *            the disciplineClassroomWhite to set
+	 */
+	public final void setDisciplineClassroomWhite(Set<DisciplineClassroom> disciplineClassroomWhite) {
+		this.disciplineClassroomWhite = disciplineClassroomWhite;
+	}
+
+	/**
+	 * @return the disciplineClassroomBlack
+	 */
+	public final Set<DisciplineClassroom> getDisciplineClassroomBlack() {
+		return this.disciplineClassroomBlack;
+	}
+
+	/**
+	 * @param disciplineClassroomBlack
+	 *            the disciplineClassroomBlack to set
+	 */
+	public final void setDisciplineClassroomBlack(Set<DisciplineClassroom> disciplineClassroomBlack) {
+		this.disciplineClassroomBlack = disciplineClassroomBlack;
+	}
+
+	/**
+	 * @return the lessons
+	 */
+	public final Set<Lesson> getLessons() {
+		return this.lessons;
+	}
+
+	/**
+	 * @param lessons
+	 *            the lessons to set
+	 */
+	public final void setLessons(Set<Lesson> lessons) {
+		this.lessons = lessons;
+	}
 }
