@@ -54,7 +54,7 @@ public class Teacher implements Comparable<Teacher> {
 	public int compareTo(Teacher o) {
 		return this.lastName.compareTo(o.lastName) == 0
 				? this.name.compareTo(o.name) == 0 ? this.middleName.compareTo(o.middleName)
-						: this.lastName.compareTo(o.name)
+						: this.name.compareTo(o.name)
 				: this.lastName.compareTo(o.lastName);
 	}
 
